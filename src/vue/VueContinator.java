@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -16,6 +17,9 @@ import modele.Continent;
 import modele.Continent.DRAPEAU;
 import modele.Pays;
 import modele.Pays.PAYS;
+import vue.VueLogo.DAUPHIN_TYPE;
+import vue.VueLogo.ECUSSON_TYPE;
+import vue.VueLogo.VAGUES_TYPE;
 
 public class VueContinator extends Vue {
 
@@ -29,6 +33,16 @@ public class VueContinator extends Vue {
 		super("continator.fxml", VueContinator.class, 1294,743);
 		super.controleur = this.controleur = new ControleurContinator();
 		Logger.logMsg(Logger.INFO, "new VueJardinator()");
+		
+		//VueLogo composant = new VueLogo();
+		//composant.colorer("rose");
+		//composant.afficherTexte("Faire face");
+		//composant.afficherDauphin(DAUPHIN_TYPE.ROSE);
+		//composant.afficherVagues(VAGUES_TYPE.ONDULE);
+		//composant.afficherEcusson(ECUSSON_TYPE.Badge);
+		//AnchorPane cloture = (AnchorPane)lookup("#espace-travail");
+		//cloture.getChildren().add(composant);
+
 	}
 		
 	public void activerControles()
@@ -97,7 +111,7 @@ public class VueContinator extends Vue {
 				System.out.println("Clic a ("+x+", "+y+")");
 				
 				
-				controleur.notifierClicContinant(x, y);
+				controleur.notifierClicDrapeauChoisi(x, y);
 				
 			}});
 		
@@ -125,7 +139,7 @@ public class VueContinator extends Vue {
 			@Override
 			public void handle(ActionEvent arg0) {
 				System.out.println("choisir le Continent Afrique de l'ouest");
-				controleur.notifierChoixDrapeau(Continent.DRAPEAU.Mali);
+				controleur.notifierChoixContinent(Continent.DRAPEAU.Mali);
 				
 			}});
 		
@@ -136,7 +150,7 @@ public class VueContinator extends Vue {
 			@Override
 			public void handle(ActionEvent arg0) {
 				System.out.println("choisir le Continent Afrique de l'est");
-				controleur.notifierChoixDrapeau(Continent.DRAPEAU.Canada);
+				controleur.notifierChoixContinent(Continent.DRAPEAU.Canada);
 				
 			}});
 
@@ -146,7 +160,7 @@ public class VueContinator extends Vue {
 			@Override
 			public void handle(ActionEvent arg0) {
 				System.out.println("choisir le Continent Afrique du Sud ");
-				controleur.notifierChoixDrapeau(Continent.DRAPEAU.Chine);
+				controleur.notifierChoixContinent(Continent.DRAPEAU.Chine);
 				
 				
 			}});
@@ -156,7 +170,7 @@ public class VueContinator extends Vue {
 			@Override
 			public void handle(ActionEvent arg0) {
 				System.out.println("choisir le Continent Afrique du Nord");
-				controleur.notifierChoixDrapeau(Continent.DRAPEAU.Allemagne);
+				controleur.notifierChoixContinent(Continent.DRAPEAU.Allemagne);
 				
 			}});
 	

@@ -9,6 +9,7 @@ import architecture.Controleur;
 import donnee.Exportable;
 import donnee.Exporteur;
 import modele.Continent;
+import modele.Continent.DRAPEAU;
 import modele.Pays;
 import modele.Pays.PAYS;
 import vue.VueContinator;
@@ -38,22 +39,34 @@ public class ControleurContinator extends Controleur{
 		
 		this.paysChoisi = pays;
 	}
-
-	public void notifierChoixDrapeau(Continent.DRAPEAU drapeau)  
+	protected List<Commande> historique = new ArrayList<Commande>();
+	protected DRAPEAU continentChoisi = DRAPEAU.Allemagne;
+	public void notifierChoixContinent(DRAPEAU nouveaudrapeau)  
 	 {
-		System.out.println("ControleurContinator.notifierChoixDrapeau()");
-		VueContinator.getInstance().afficherPays(drapeau);
-		this.continent.setDrapeau(drapeau);
-		
-		//Exporteur exporteur = new Exporteur();
-		//exporteur.sauvegarder(paysContinent);
+		System.out.println("ControleurContinator.notifierChoixContinent()");
+		//VueContinator.getInstance().afficherPays(drapeau);
+		this.continent.setContinent(nouveaudrapeau);
+		Commande commande = new CommandeChoisirContinent(continentChoisi, nouveaudrapeau);
+		commande.executer();
+		//commande.annuler();
+		historique.add(commande);
+		this.continentChoisi = nouveaudrapeau;
 		
 	}
 	
-	public void notifierClicContinant(double x, double y)
+	
+	
+	protected PAYS drapeauChoisi = paysChoisi;
+	
+	public void notifierClicDrapeauChoisi(double x, double y)
 	{	
 		System.out.println("ControleurContinator.notifierClicContinant()");
-		VueContinator.getInstance().decouvrirPays(this.paysChoisi, x, y);
+		
+		
+		Commande commande = new CommandePlanterDrapeau(null ,paysChoisi, x, y);
+		commande.executer();
+		historique.add(commande);
+		//VueContinator.getInstance().decouvrirPays(this.paysChoisi, x, y);
 		Pays pays = new Pays(this.paysChoisi, x,y);
 		this.continent.ajouterPays(pays);
 	}
