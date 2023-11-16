@@ -13,14 +13,48 @@ public class VueLogo  extends AnchorPane{
 		this.setPrefWidth(166);
 	}
 	
-	public void colorer(String couleur)
+	public VueLogo avecEcusson(ECUSSON_TYPE type) 
+	{
+		this.setEcusson(type);
+		return this;
+	}
+	
+	public VueLogo coloreEn(String couleur) 
+	{
+		this.setCouleur(couleur);
+		return this;
+	}
+	
+	
+	
+	public void setCouleur(String couleur)
 	{
 		this.setStyle("-fx-background-color: "+couleur+";");
 	}
 	
-	public enum ECUSSON_TYPE{Badge};
-	public void afficherEcusson(ECUSSON_TYPE type)
+	public VueLogo decoreParUnDauphin(COULEUR_DAUPHIN couleur) 
 	{
+		this.setCouleurDauphin(couleur);
+		return this;
+	}
+	public VueLogo  couronnrDeVagues(VAGUES_TYPE type) 
+	{
+		this.setVagues(type);
+		return this;
+	}
+	
+	public VueLogo proclamant(String texte) 
+	{
+		this.setText(texte);
+		return this;
+	}
+	
+	
+	
+	public enum ECUSSON_TYPE{Badge};
+	public void setEcusson(ECUSSON_TYPE type)
+	{
+		
 		ImageView ecusson = new ImageView();
 		if(type == ECUSSON_TYPE.Badge)
 			ecusson.setImage(new Image("vue/decoration/Badge.png")); // 300 x 356
@@ -28,7 +62,7 @@ public class VueLogo  extends AnchorPane{
 	}
 	
 	public enum VAGUES_TYPE{ONDULE};
-	public void afficherVagues(VAGUES_TYPE type)
+	public void setVagues(VAGUES_TYPE type)
 	{
 		ImageView vagues = new ImageView();
 		if(type == VAGUES_TYPE.ONDULE)
@@ -39,7 +73,7 @@ public class VueLogo  extends AnchorPane{
 
 	}
 	
-	public void afficherTexte(String texte)
+	public void setText(String texte)
 	{
 		Label motto = new Label();
 		motto.setText(texte);
@@ -50,13 +84,13 @@ public class VueLogo  extends AnchorPane{
 
 	}
 	
-	public enum DAUPHIN_TYPE{BLEU,ROSE};
-	public void afficherDauphin(DAUPHIN_TYPE type)
+	public enum COULEUR_DAUPHIN{BLEU,ROSE};
+	public void setCouleurDauphin(COULEUR_DAUPHIN type)
 	{
 		ImageView dauphin = new ImageView();
-		if(type == DAUPHIN_TYPE.BLEU)
+		if(type == COULEUR_DAUPHIN.BLEU)
 			dauphin.setImage(new Image("vue/decoration/dauphin-bleu.png")); // 100 x 100
-		if(type == DAUPHIN_TYPE.ROSE)
+		if(type == COULEUR_DAUPHIN.ROSE)
 			dauphin.setImage(new Image("vue/decoration/dauphin-rose.png")); // 100 x 100
 		dauphin.setLayoutX(100);
 		dauphin.setLayoutY(130);

@@ -17,7 +17,8 @@ import modele.Continent;
 import modele.Continent.DRAPEAU;
 import modele.Pays;
 import modele.Pays.PAYS;
-import vue.VueLogo.DAUPHIN_TYPE;
+import vue.VueLogo.COULEUR_DAUPHIN;
+
 import vue.VueLogo.ECUSSON_TYPE;
 import vue.VueLogo.VAGUES_TYPE;
 
@@ -34,14 +35,15 @@ public class VueContinator extends Vue {
 		super.controleur = this.controleur = new ControleurContinator();
 		Logger.logMsg(Logger.INFO, "new VueJardinator()");
 		
-		//VueLogo composant = new VueLogo();
-		//composant.colorer("rose");
-		//composant.afficherTexte("Faire face");
-		//composant.afficherDauphin(DAUPHIN_TYPE.ROSE);
-		//composant.afficherVagues(VAGUES_TYPE.ONDULE);
-		//composant.afficherEcusson(ECUSSON_TYPE.Badge);
-		//AnchorPane cloture = (AnchorPane)lookup("#espace-travail");
-		//cloture.getChildren().add(composant);
+		VueLogo composant = new 
+		VueLogo().avecEcusson(ECUSSON_TYPE.Badge).coloreEn("blue").decoreParUnDauphin(COULEUR_DAUPHIN.BLEU).couronnrDeVagues(VAGUES_TYPE.ONDULE).proclamant("Faire face");
+		/*composant.setCouleur("rose");
+		composant.setText("Faire face");
+		composant.setCouleurDauphin(COULEUR_DAUPHIN.ROSE);
+		composant.setVagues(VAGUES_TYPE.ONDULE);
+		composant.setEcusson(ECUSSON_TYPE.Badge);*/
+		AnchorPane cloture = (AnchorPane)lookup("#espace-travail");
+		cloture.getChildren().add(composant);
 
 	}
 		
