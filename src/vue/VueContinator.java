@@ -35,8 +35,8 @@ public class VueContinator extends Vue {
 		super.controleur = this.controleur = new ControleurContinator();
 		Logger.logMsg(Logger.INFO, "new VueJardinator()");
 		
-		VueLogo composant = new 
-		VueLogo().avecEcusson(ECUSSON_TYPE.Badge).coloreEn("blue").decoreParUnDauphin(COULEUR_DAUPHIN.BLEU).couronnrDeVagues(VAGUES_TYPE.ONDULE).proclamant("Faire face");
+		VueLogo composant = new   
+		VueLogo().avecEcusson(ECUSSON_TYPE.Badge).coloreEn("blue").decoreParUnDauphin(COULEUR_DAUPHIN.BLEU).couronnerDeVagues(VAGUES_TYPE.ONDULE).proclamant("Faire face");
 		/*composant.setCouleur("rose");
 		composant.setText("Faire face");
 		composant.setCouleurDauphin(COULEUR_DAUPHIN.ROSE);

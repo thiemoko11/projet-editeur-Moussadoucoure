@@ -37,7 +37,7 @@ public class VueLogo  extends AnchorPane{
 		this.setCouleurDauphin(couleur);
 		return this;
 	}
-	public VueLogo  couronnrDeVagues(VAGUES_TYPE type) 
+	public VueLogo  couronnerDeVagues(VAGUES_TYPE type) 
 	{
 		this.setVagues(type);
 		return this;
